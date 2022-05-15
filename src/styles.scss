@@ -1,0 +1,38 @@
+$primary-color: white;
+$bg: black;
+h1 {
+  color: $primary-color;
+  background-color: $bg;
+}
+
+body {
+  background-color: black;
+}
+
+.gifs {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gif {
+  padding: 5px 5px;
+}
+
+.loader {
+  color: blue;
+  margin: auto;
+}
+
+.pages a {
+  cursor:pointer;
+}
+
+.error {
+  width:50%;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+}
