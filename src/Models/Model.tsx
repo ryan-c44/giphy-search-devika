@@ -10,3 +10,9 @@ export interface Images {
 export interface FixedHeight {
     url: string;
 }
+
+export interface Parameters {
+    api_key: string,
+    limit: number,
+    q?: string
+}

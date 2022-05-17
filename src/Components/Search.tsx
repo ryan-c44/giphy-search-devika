@@ -19,9 +19,9 @@ const Search = (props: Prop): React.ReactElement => {
             <button
                 onClick={props.handleSubmit}
                 type="submit"
-                className="btn btn-primary mx-2"
+                className="btn btn-primary"
             >
-            Search
+                <span><i className="fas fa-search" aria-hidden="true" /></span>
             </button>
       </form>
     );
