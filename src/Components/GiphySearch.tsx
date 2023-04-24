@@ -2,6 +2,7 @@ import * as React from "react";
 import  { useEffect, useState } from "react";
 import axios from "axios";
 
+import { environment } from "../Environment/environment";
 import Paginate from "./Paginate";
 import Error from "./Error";
 import Search from "./Search";
@@ -10,9 +11,8 @@ import Gifs from "./Gifs";
 import { Gif, Parameters } from "../Models/Model";
 
 const GiphySearch = (): React.ReactElement => {
-  const apiKey: string = "fYu0J9pzZqrTnHu2IvQlU6YGFLCm9PDQ";
-  const searchUrl: string = "https://api.giphy.com/v1/gifs/search";
-  const trendingUrl: string = "https://api.giphy.com/v1/gifs/trending"
+  const searchUrl: string = environment.app_config.apiUrl + "search";
+  const trendingUrl: string = environment.app_config.apiUrl + "trending";
 
   const [data, setData] = useState([] as Gif[]);
   const [search, setSearch] = useState<string>("");
@@ -21,7 +21,7 @@ const GiphySearch = (): React.ReactElement => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [params, setParams] = useState<Parameters>({
-    api_key: apiKey,
+    api_key: environment.app_config.apiKey,
     limit: 100
   });
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -42,7 +42,6 @@ const GiphySearch = (): React.ReactElement => {
   const fetchGifs = async (url: string): Promise<void> => {
     setIsError(false);
     setIsLoading(true);
-    console.log(params);
 
     try {
       const results = await axios(url, {
